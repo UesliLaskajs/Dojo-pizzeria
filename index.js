@@ -1,4 +1,4 @@
-function pizzaOven(crustType, sauceType, cheeses, toppingssgi) {
+function pizzaOven(crustType, sauceType, cheeses, toppingss) {
     return {
         crustType: crustType,
         sauceType: sauceType,
