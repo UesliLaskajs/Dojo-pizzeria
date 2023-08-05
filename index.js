@@ -1,29 +1,38 @@
-function pizzaOven(crustType, sauceType, cheeses, toppingss) {
+function pizzaOven(crustType, sauceType, cheeses, toppings) {
     return {
         crustType: crustType,
         sauceType: sauceType,
         cheeses: cheeses,
-        toppings: toppingss
+        toppings: toppings
     };
 }
 
-const pizza1 = pizzaOven("deep dish", "traditional", ["mozzarella"], ["pepperoni", "sausage"]);
-const pizza2 = pizzaOven("hand tossed", "marinara", ["mozzarella", "feta"], ["mushrooms", "olives", "onions"]);
-const pizza3 = pizzaOven("thin crust", "pesto", ["mozzarella", "parmesan"], ["spinach", "tomatoes", "garlic"]);
-const pizza4 = pizzaOven("stuffed crust", "alfredo", ["cheddar", "gouda"], ["bacon", "jalapenos", "pineapple"]);
+function randomPizza() {
+    var crustTypes = ["deep dish", "hand tossed", "thin crust", "stuffed crust"];
+    var sauceTypes = ["traditional", "marinara", "alfredo", "pesto"];
+    var cheesesOptions = [["mozzarella"], ["cheddar"], ["feta"], ["parmesan", "asiago"]];
+    var toppingsOptions = [
+        ["pepperoni", "sausage"],
+        ["mushrooms", "olives", "onions"],
+        ["bell peppers", "tomatoes", "spinach"],
+        ["ham", "pineapple", "bacon"]
+    ];
+
+    var randomCrust = crustTypes[Math.floor(Math.random() * crustTypes.length)];
+    var randomSauce = sauceTypes[Math.floor(Math.random() * sauceTypes.length)];
+    var randomCheeses = cheesesOptions[Math.floor(Math.random() * cheesesOptions.length)];
+    var randomToppings = toppingsOptions[Math.floor(Math.random() * toppingsOptions.length)];
+
+    return pizzaOven(randomCrust, randomSauce, randomCheeses, randomToppings);
+}
+
+var pizza1 = pizzaOven("deep dish", "traditional", ["mozzarella"], ["pepperoni", "sausage"]);
+var pizza2 = pizzaOven("hand tossed", "marinara", ["mozzarella", "feta"], ["mushrooms", "olives", "onions"]);
+var pizza3 = pizzaOven("thin crust", "alfredo", ["cheddar"], ["ham", "pineapple", "bacon"]);
+var pizza4 = randomPizza();
 
 console.log(pizza1);
 console.log(pizza2);
 console.log(pizza3);
 console.log(pizza4);
 
-function randomPizza() {
-    const crustTypes = ["thin crust", "deep dish", "hand tossed", "stuffed crust"];
-    const sauceTypes = ["marinara", "alfredo", "pesto", "bbq"];
-    const cheeseOptions = ["mozzarella", "cheddar", "feta", "parmesan", "gouda"];
-    const toppingOptions = ["pepperoni", "sausage", "mushrooms", "olives", "onions", "bell peppers", "ham", "pineapple"];
-
-    const randomCrust = crustTypes[Math.floor(Math.random() * crustTypes.length)];
-    const randomSauce = sauceTypes[Math.floor(Math.random() * sauceTypes.length)];
-    const randomCheeses = [cheeseOptions[Math.floor(Math.random() * cheeseOptions.length)]];
-}
